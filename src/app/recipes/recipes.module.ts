@@ -8,6 +8,7 @@ import {RecipesItemComponent} from './recipes-list/recipes-item/recipes-item.com
 import {SharedModule} from "../shared/shared.module";
 import {RecipeStartComponent} from './recipe-start/recipe-start.component';
 import {RouterModule} from "@angular/router";
+import {RecipesEditComponent} from "./recipes-edit/recipes-edit.component";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {RouterModule} from "@angular/router";
     RecipesListComponent,
     RecipesDetailsComponent,
     RecipesItemComponent,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipesEditComponent
   ],
   imports: [
     CommonModule,
