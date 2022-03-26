@@ -28,4 +28,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       }
     )
   }
+
+  onEditItem(idx: number) {
+    this.slService.startedEditing.next(idx);
+  }
 }
