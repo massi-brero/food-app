@@ -1,0 +1,27 @@
+.ingredient-edit-row {
+  margin-top: 10px;
+}
+
+.ingredients-button-group
+{
+  padding-left: 0;
+  margin-bottom: 16px;
+}
+
+.list-ingredients {
+  margin-bottom: 16px;
+}
+
+.recipe-edit-image {
+  margin-bottom: 16px;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched
+{
+  border: 1px solid red;
+}
+
+.edit-recipe-image {
+  width: 400px;
+}
