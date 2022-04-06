@@ -28,6 +28,11 @@ export class RecipeService {
     ),
   ]
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes
+    this.emitRecipes()
+  }
+
   get allRecipes() {
     return this.recipes.slice()
   }
