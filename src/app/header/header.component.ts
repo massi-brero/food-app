@@ -16,6 +16,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onFetchAll() {
-    this.dataStrorageService.fetchAll()
+    this.dataStrorageService.fetchAll().subscribe()
   }
 }

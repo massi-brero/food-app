@@ -1,17 +1,18 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {RecipesModule} from "./recipes/recipes.module";
-import {RecipesComponent} from "./recipes/recipes.component";
-import {ShoppingListComponent} from "./shopping-list/shopping-list.component";
-import {RecipeStartComponent} from "./recipes/recipe-start/recipe-start.component";
-import {RecipesDetailsComponent} from "./recipes/recipes-details/recipes-details.component";
-import {RecipesEditComponent} from "./recipes/recipes-edit/recipes-edit.component";
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
+import { RecipesModule } from './recipes/recipes.module'
+import { RecipesComponent } from './recipes/recipes.component'
+import { ShoppingListComponent } from './shopping-list/shopping-list.component'
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component'
+import { RecipesDetailsComponent } from './recipes/recipes-details/recipes-details.component'
+import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component'
+import { RecipesResolverService } from './recipes/services/recipes-resolver.service'
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/recipes',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'recipes',
@@ -19,35 +20,31 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: RecipeStartComponent
+        component: RecipeStartComponent,
       },
       {
         path: 'new',
-        component: RecipesEditComponent
+        component: RecipesEditComponent,
       },
       {
         path: ':id',
-        component: RecipesDetailsComponent
+        component: RecipesDetailsComponent,
+        resolve: [RecipesResolverService],
       },
       {
         path: ':id/edit',
-        component: RecipesEditComponent
+        component: RecipesEditComponent,
       },
     ],
   },
   {
     path: 'shopping-list',
-    component: ShoppingListComponent
-  }
-];
+    component: ShoppingListComponent,
+  },
+]
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    RecipesModule],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes), RecipesModule],
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
