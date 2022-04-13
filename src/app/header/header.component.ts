@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { DataStorageService } from '../shared/services/data-storage.service'
+import { AuthService } from '../auth/services/auth.service'
 
 @Component({
   selector: 'app-header',
@@ -7,15 +8,18 @@ import { DataStorageService } from '../shared/services/data-storage.service'
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private dataStrorageService: DataStorageService) {}
+  constructor(
+    private dataStorageService: DataStorageService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {}
 
   onSave() {
-    this.dataStrorageService.save()
+    this.dataStorageService.save()
   }
 
   onFetchAll() {
-    this.dataStrorageService.fetchAll().subscribe()
+    this.dataStorageService.fetchAll().subscribe()
   }
 }
