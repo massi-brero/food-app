@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core'
-import {HttpClient, HttpParams} from '@angular/common/http'
-import { RecipeService } from '../../recipes/services/recipe.service'
-import { environment } from '../../../environments/environment'
-import { Recipe } from '../../recipes/recipe.model'
-import { map, tap, take, exhaustMap } from 'rxjs/operators'
-import { Observable } from 'rxjs'
-import { AuthService } from '../../auth/services/auth.service'
-import { User } from '../../auth/models/user'
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+
+import { environment } from '../../../environments/environment';
+import { AuthService } from '../../auth/services/auth.service';
+import { Recipe } from '../../recipes/recipe.model';
+import { RecipeService } from '../../recipes/services/recipe.service';
 
 @Injectable({
   providedIn: 'root',
@@ -30,16 +30,7 @@ export class DataStorageService {
   //
   // })
   fetchAll(): Observable<Recipe[]> {
-    return this.authService.user$.pipe(
-      take(1),
-      exhaustMap((user: User) => {
-        return this.http.get<Recipe[]>(
-          `${environment.apiUrl}/recipes.json`,
-          {
-            params: new HttpParams().set('auth', user.token)
-          }
-        )
-      }),
+    return this.http.get<Recipe[]>(`${environment.apiUrl}/recipes.json`).pipe(
       map((recipes) => {
         return recipes.map((recipe) => {
           return {

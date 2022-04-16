@@ -1,0 +1,4 @@
+{
+  "go.toolsManagement.autoUpdate": true,
+  "angular.enable-strict-mode-prompt": false
+}
