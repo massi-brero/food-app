@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { map, Observable, take } from 'rxjs';
 
 import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -20,8 +20,9 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     return this.authService.user$.pipe(
+      take(1),
       map((user: User) => {
-        return !!user
+        return !!user ? true : this.router.createUrlTree(['/auth'])
       })
     )
   }
