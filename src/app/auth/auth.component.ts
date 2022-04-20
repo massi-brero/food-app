@@ -24,8 +24,7 @@ export class AuthComponent implements OnDestroy{
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private router: Router
   ) {
     this.form = fb.group({
       email: fb.control(null, [Validators.required, Validators.email]),
@@ -79,11 +78,10 @@ export class AuthComponent implements OnDestroy{
   }
 
   private showErrorAlert(errorMessage: string) {
-    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent)
     const hostViewContainerRef = this.alertHost.viewContainerRef
     hostViewContainerRef.clear()
 
-    const componentRef = hostViewContainerRef.createComponent(alertCmpFactory)
+    const componentRef = hostViewContainerRef.createComponent(AlertComponent)
     componentRef.instance.message = errorMessage
     this.subscription = componentRef.instance.close.subscribe(() => {
       this.subscription.unsubscribe()
