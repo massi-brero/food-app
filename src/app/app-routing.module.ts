@@ -18,34 +18,6 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'recipes',
-    component: RecipesComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: '',
-        component: RecipeStartComponent,
-      },
-      {
-        path: 'new',
-        component: RecipesEditComponent,
-      },
-      {
-        path: ':id',
-        component: RecipesDetailsComponent,
-        resolve: [RecipesResolverService],
-      },
-      {
-        path: ':id/edit',
-        component: RecipesEditComponent,
-      },
-    ],
-  },
-  {
-    path: 'shopping-list',
-    component: ShoppingListComponent,
-  },
-  {
     path: 'auth',
     component: AuthComponent,
   },

@@ -4,6 +4,7 @@ import {ShoppingListService} from "./services/shopping-list.service";
 import {ShoppingListComponent} from "./shopping-list.component";
 import {ShoppingEditComponent} from "./shopping-edit/shopping-edit.component";
 import {FormsModule} from "@angular/forms";
+import {ShoppingListRoutingModule} from './shopping-list-routing/shopping-list-routing.module'
 
 
 
@@ -13,12 +14,9 @@ import {FormsModule} from "@angular/forms";
     ShoppingEditComponent
   ],
   imports: [
+    ShoppingListRoutingModule,
     CommonModule,
     FormsModule
-  ],
-  exports: [
-    ShoppingListComponent
-  ],
-  providers: [ShoppingListService]
+  ]
 })
 export class ShoppingListModule { }
