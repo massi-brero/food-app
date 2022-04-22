@@ -1,30 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core'
+import {RouterModule, Routes} from '@angular/router'
+import {RecipesModule} from './recipes/recipes.module'
 
-import { AuthComponent } from './auth/auth.component';
-import { AuthGuard } from './auth/guards/auth.guard';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipesDetailsComponent } from './recipes/recipes-details/recipes-details.component';
-import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipesModule } from './recipes/recipes.module';
-import { RecipesResolverService } from './recipes/services/recipes-resolver.service';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/recipes',
-    pathMatch: 'full',
-  },
-  {
-    path: 'auth',
-    component: AuthComponent,
-  },
-]
+const routes: Routes = []
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), RecipesModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

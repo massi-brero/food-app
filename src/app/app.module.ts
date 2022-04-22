@@ -24,7 +24,6 @@ import { AuthModule } from './auth/auth.module'
       maxAge: 25,
       logOnly: environment.production,
     }),
-    ReactiveFormsModule,
     AuthModule,
   ],
   bootstrap: [AppComponent],

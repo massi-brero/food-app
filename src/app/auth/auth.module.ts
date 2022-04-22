@@ -1,20 +1,23 @@
-import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { SharedModule } from '../shared/shared.module';
-import { AuthComponent } from './auth.component';
-import { AuthInterceptorService } from './services/auth-interceptor.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http'
+import {NgModule} from '@angular/core'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {SharedModule} from '../shared/shared.module'
+import {AuthComponent} from './auth.component'
+import {AuthInterceptorService} from './services/auth-interceptor.service'
+import {RouterModule} from '@angular/router'
 
 @NgModule({
   declarations: [AuthComponent],
   imports: [
-    CommonModule,
-    FormsModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    RouterModule.forChild([
+      {
+        path: 'auth',
+        component: AuthComponent,
+      },
+    ])
   ],
   providers: [
     {
