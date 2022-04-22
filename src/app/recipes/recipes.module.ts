@@ -24,14 +24,7 @@ import {RecipesRoutingModule} from './recipes-routing/recipes-routing.module'
     SharedModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        redirectTo: '/recipes',
-        pathMatch: 'full',
-      }
-    ])
+    ReactiveFormsModule
   ]
 })
 export class RecipesModule {}
