@@ -59,7 +59,6 @@ export class AuthComponent implements OnDestroy{
 
     authObservable.subscribe(
       (response: AuthResponse) => {
-        console.log(response)
         this.isLoading = false
         this.router.navigate(['/recipes'])
       },

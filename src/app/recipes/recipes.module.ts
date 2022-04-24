@@ -8,7 +8,7 @@ import {RecipeStartComponent} from './recipe-start/recipe-start.component'
 import {RouterModule} from '@angular/router'
 import {RecipesEditComponent} from './recipes-edit/recipes-edit.component'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
-import {RecipesRoutingModule} from './recipes-routing/recipes-routing.module'
+import {RecipesRoutingModule} from './recipes-routing.module'
 
 @NgModule({
   declarations: [
