@@ -8,19 +8,19 @@ import { SharedModule } from './shared/shared.module'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { LoggingService } from './logging.service'
+import {AuthModule} from './auth/auth.module'
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
+    AuthModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
   ],
   bootstrap: [AppComponent],
-  // providers: [LoggingService],
 })
 export class AppModule {}
