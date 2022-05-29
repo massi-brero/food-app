@@ -1,4 +1,8 @@
 {
   "go.toolsManagement.autoUpdate": true,
-  "angular.enable-strict-mode-prompt": false
+  "angular.enable-strict-mode-prompt": false,
+  "window.zoomLevel": 0.5,
+  "editor.cursorBlinking": "blink",
+  "editor.fontSize": 12,
+  "workbench.iconTheme": "vs-seti"
 }
