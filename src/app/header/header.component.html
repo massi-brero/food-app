@@ -22,13 +22,11 @@
           </a>
         </li>
         <li class="dropdown" appDropdown *ngIf="isAuthenticated">
-          <a class="dropdown-toggle global-dropdown" role="button"
-            >Manage <span class="caret"></span
-          ></a>
-          <ul class="dropdown-menu list-group">
-            <li class="list-group-item" (click)="onSave()"><a></a>Save Data</li>
+          <a class="dropdown-toggle global-dropdown" role="button">Manage <span class="caret"></span></a>
+          <ul class=" list-group">
+            <li class="list-group-item" (click)="onSave()"><a>Save Data</a></li>
             <li class="list-group-item" (click)="onFetchAll()">
-              <a></a>Fetch Data
+              <a>Fetch Data</a>
             </li>
           </ul>
         </li>
