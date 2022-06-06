@@ -22,8 +22,9 @@
           </a>
         </li>
         <li class="dropdown" appDropdown *ngIf="isAuthenticated">
-          <a class="dropdown-toggle global-dropdown" role="button">Manage <span class="caret"></span></a>
-          <ul class=" list-group">
+          <a class="btn dropdown-toggle global-dropdown" id="dropdownMenuButton" data-toggle="dropdown"
+            role="button">Manage <span class="caret"></span></a>
+          <ul class="dropdown-menu list-group">
             <li class="list-group-item" (click)="onSave()"><a>Save Data</a></li>
             <li class="list-group-item" (click)="onFetchAll()">
               <a>Fetch Data</a>
