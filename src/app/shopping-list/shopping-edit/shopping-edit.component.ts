@@ -51,6 +51,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
         })
       )
     } else {
+      console.log('huhu')
+
       // this.slService.addIngredient(newIngredient)
       this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient))
     }

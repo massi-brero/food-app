@@ -26,7 +26,7 @@ export function shoppingListReducer(
     case ShoppingsListActions.DELETE_INGREDIENTS:
       return {
         ...state,
-        Ingredients: state.ingredients.filter(
+        ingredients: state.ingredients.filter(
           (_, idx) => idx !== action.payload
         ),
       }
@@ -46,8 +46,9 @@ const updateIngredients = (
   }
   const updatedIngredients = [...state.ingredients]
   updatedIngredients[action.payload.index] = updatedIngredient
+
   return {
     ...state,
-    Ingredients: updatedIngredients,
+    ingredients: updatedIngredients,
   }
 }
