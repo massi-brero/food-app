@@ -5,6 +5,7 @@ import { ShoppingListService } from '../../shopping-list/services/shopping-list.
 import { Subject } from 'rxjs'
 import { Store } from '@ngrx/store'
 import * as ShoppingListActions from '../../shopping-list/store/shopping-list.actions'
+import * as fromShoppingsList from '../../shopping-list/store/shopping-list.reducer'
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class RecipeService {
 
   constructor(
     private slService: ShoppingListService,
-    private store: Store<{ shoppingList: { ingredients: Ingredient[] } }>
+    private store: Store<fromShoppingsList.AppState>
   ) {}
 
   // private recipes: Recipe[] = [

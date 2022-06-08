@@ -4,6 +4,8 @@ import { Observable } from 'rxjs'
 
 import { Ingredient } from '../shared/ingredient.model'
 import { ShoppingListService } from './services/shopping-list.service'
+import * as fromShoppingsList from './store/shopping-list.reducer'
+import * as ShoppingListActions from './store/shopping-list.actions'
 
 @Component({
   selector: 'app-shopping-list',
@@ -16,7 +18,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   constructor(
     private slService: ShoppingListService,
-    private store: Store<{ shoppingList: { ingredients: Ingredient[] } }>
+    private store: Store<fromShoppingsList.AppState>
   ) {}
 
   ngOnDestroy(): void {
@@ -25,15 +27,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.ingredients = this.store.select('shoppingList')
-    // this.ingredients = this.slService.allIngredients
-    // this.igChangedSub = this.slService.$ingredientsChanged.subscribe(
-    //   (ingredients: Ingredient[]) => {
-    //     this.ingredients = ingredients
-    //   }
-    // )
   }
 
   onEditItem(idx: number) {
-    this.slService.startedEditing.next(idx)
+    this.store.dispatch(new ShoppingListActions.StartEdit(idx))
   }
 }
